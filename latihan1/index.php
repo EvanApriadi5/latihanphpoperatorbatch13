@@ -12,6 +12,9 @@
     <a href="2variabel.php">2</a>
     <a href="3variabel.php">3</a>
     <a href="4ifelse.php">IFELSE</a>
+    <a href="5looping.php">LOOPING</a>
+    <a href="6array.php">ARRAY</a>
+    <a href="7function.php">FUNCTION</a>
     
 </body>
 </html>
