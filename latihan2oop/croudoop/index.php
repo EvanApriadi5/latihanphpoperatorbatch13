@@ -51,35 +51,40 @@
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
-            
+
         </div>
     </nav>
     <div class="container mt-4">
         <!-- kondisi saat menu dklik -->
-<?php
-// jika ada paramater page penamaan parameter page diatas di menu2 di hrefnya
-if(isset($_GET['page'])) { //mengecek page ada apa tidak
-    $page  = $_GET['page'];
-    //panggil file sesuai isi data yg ada di parameter page
-    if($page == 'driver') {   //== membandingkan kalo === serta tipee data diikutkan
-        //panggil file driver.php
-        include __DIR__.'/views/driver/index.php';
-
-    } else if ($page == 'transaksi'){
-      //panggil file transaksi.php
-    include __DIR__.'/views/transaksi/index.php';  
-    }
-    
-    
-} else {
-    //echo __DIR__
-    //maka kita panggil file dashboard/index.php sbg halaman utama
-    include __DIR__.'/views/dashboard/index.php';
+        <?php
+        // jika ada paramater page penamaan parameter page diatas di menu2 di hrefnya
+        if (isset($_GET['page'])) { //mengecek page ada apa tidak
+            $page  = $_GET['page'];
+            $action = @$_GET['action'];
+            //panggil file sesuai isi data yg ada di parameter page
+            if ($page == 'driver') {   //== membandingkan kalo === serta tipee data diikutkan
+                //panggil file driver.php
 
 
-
-}
-?>
+                if ($action == 'add') {
+                    include __DIR__ . '/views/driver/add.php';
+                } else if ($action == 'edit') {
+                    include __DIR__ . '/views/driver/edit.php';
+                } else if ($action == 'delete') {
+                    include __DIR__ . '/views/driver/delete.php';
+                } else {
+                    include __DIR__ . '/views/driver/index.php';
+                }
+            } else if ($page == 'transaksi') {
+                //panggil file transaksi.php
+                include __DIR__ . '/views/transaksi/index.php';
+            }
+        } else {
+            //echo __DIR__
+            //maka kita panggil file dashboard/index.php sbg halaman utama
+            include __DIR__ . '/views/dashboard/index.php';
+        }
+        ?>
     </div>
 </body>
 
